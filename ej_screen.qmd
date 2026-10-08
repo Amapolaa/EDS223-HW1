@@ -1,31 +1,75 @@
-# Installing Packages
+---
+title: "Homework Assignment 1"
+subtitle: "Map Making practice"
+author: "Amapola Garcia"
+date: 2026-10-6
+execute: 
+  eval: true
+format:
+  html:
+    toc: true
+editor_options: 
+  chunk_output_type: console
+---
+# **Instructions:**
+
+For this assignment, you will explore an environmental justice topic of your choosing. You should select a region, community, or environmental issue that matters to you.
+* Create two maps that communicate an enviromental justice issue
+
+* Write a brief paragraph explaining what my map communicates.
+
+## I.Setup
+
 ```{r}
 install.packages("sf")
 install.packages("stars")
 install.packages("tmap")
 ```
 
-# Install libraries
 ```{r}
 library(tidyverse)
 library(sf)
 library(here)
+library(tmap)
 ```
 
+## II.Upload data:
 
 ```{r}
-
-# read in geodatabase of EJScreen data at the Census Block Group level
+# reading geodatabase of EJScreen data at the Census Block Group level 
 ejscreen <- sf::st_read(here::here("data", "ejscreen","EJSCREEN_2023_BG_StatePct_with_AS_CNMI_GU_VI.gdb")) 
 
-# filter to a state you are interested in
+# filtering California
 california <- ejscreen %>%
-  dplyr::filter(ST_ABBREV == "CA") 
+  dplyr::filter(ST_ABBREV == "CA")  
 
-# filter to a county you are interested in
-santa_barbara <- ejscreen %>%
-  dplyr::filter(CNTY_NAME %in% c("Santa Barbara County"))
+# filter Los Angeles County
+#
+la_county <- california %>%
+  dplyr::filter(CNTY_NAME %in% c("Los Angeles County"))
 
 # find the average values for all variables within counties
 california_counties <- aggregate(california, by = list(california$CNTY_NAME), FUN = mean)
 ```
+
+## III.Create two maps communicating an enviromental justice issue
+---
+
+Mapping Number of Low-Income in Los Angeles County, CA:
+```{r}
+# Static Map
+tmap_mode("plot")
+
+# Creates a map of concentration of the % low-income
+tm_shape(la_county)
+
+
+
+
+
+```
+
+
+
+
+## .Analysis
