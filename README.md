@@ -10,7 +10,7 @@
 This project explores the 
 For Homework 1 I am exploing an enviormental justice topic in East Los Angeles community.
 
-#Oveerview
+#Oveervie
 
 ## Content
 ---
