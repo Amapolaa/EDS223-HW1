@@ -51,6 +51,3 @@ po/*~
 
 # RStudio Connect folder
 rsconnect/
-data/
-.DS_Store
-readme_files/libs/
