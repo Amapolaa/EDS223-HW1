@@ -1,17 +1,16 @@
 ---
 title: "Homework Assignment 1"
-subtitle: "Map Making practice"
+subtitle: "Map making practice"
 author: "Amapola Garcia"
 date: 2026-10-6
 execute: 
   eval: true
-format:
-  html:
-    toc: true
+html:
 editor_options: 
   chunk_output_type: console
+warning: false
 ---
-# **Instructions:**
+## **Instructions:**
 For this assignment, you will explore an environmental justice topic of your choosing. You should select a region, community, or environmental issue that matters to you.
 ---
 * Create two maps that communicate an enviromental justice issue
@@ -21,7 +20,9 @@ For this assignment, you will explore an environmental justice topic of your cho
 
 ```{r}
 #| eval: false
+# code wouldnt render without this second installation package
 install.packages("sf")
+
 ```
 
 ```{r}
@@ -30,6 +31,7 @@ install.packages("sf")
 install.packages("stars")
 install.packages("tmap")
 ```
+
 
 ## I.II Upload Libraries
 ```{r}
@@ -58,7 +60,7 @@ california_counties <- aggregate(california, by = list(california$CNTY_NAME), FU
 ```
 
 ## III.Create two maps communicating an enviromental justice issue
-Mapping the percentage of Low-Income in Los Angeles County, CA:
+Mapping the percentage of low-income in San Mateo County, CA:
 
 ```{r}
 # Static map
